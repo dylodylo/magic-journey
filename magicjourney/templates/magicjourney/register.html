@@ -1,0 +1,26 @@
+{% extends 'magicjourney/base.html' %}
+
+{% block title %} Register {% endblock %}
+
+{% block body %}
+
+{% if message %}
+<h2>{{ message }}</h2>
+{% endif %}
+
+<h2>Hello young wizard!</h2>
+
+<h3>Please give us your name and owl.</h3>
+
+
+<form action="{% url 'register' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div>Login:<input type="text" name="login"></div>
+    <div>Password:<input type="password" name="password"></div>
+    <div>Confirm password:<input type="password" name="confirmation"></div>
+    <div>Email:<input type="email" name="email"></div>
+    <input type="submit" value="Register">
+</form>
+
+{% endblock %}

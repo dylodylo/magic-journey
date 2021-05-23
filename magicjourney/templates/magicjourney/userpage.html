@@ -1,0 +1,99 @@
+{% extends 'magicjourney/base.html' %}
+
+{% block title %}{{ player.user.username }} {% endblock %}
+
+{% block body %}
+
+{% if player == None %}
+<h2>Start journey to see your statistics and equipment!</h2>
+{% else %}
+<h2>Hello, {{ player.user.username }}!</h2>
+<h3>Your magic level: {{ player.level }}</h3> 
+
+
+<div class="player-card" style="display: block; float:left; margin-left: 0;">
+    <div class="container">
+        <h3><b>Your skills:</b></h3>
+        {% for field in fields %}
+        <p>{{ field.0|title }}: <span id="{{field.0}}-value">{{ field.1 }}</span>
+            {% if field.0|title == "Skills Points" and field.1 > 0 %}
+            <button id="skills_points_button" class="equip-button" onclick="skills_points()">Spend skills points</button>
+        {% elif field.0 == "defence" or field.0 == "charms" or field.0 == "transfiguration" or field.0 == "potions" or field.0 == "charisma" %}
+            <span class="plus-minus" style="display: none;">
+                <button class="plus" id="plus-{{field.0}}" data-skill="{{field.0}}">+</button>
+                <button class="minus" id="minus-{{field.0}}" data-skill="{{field.0}}">-</button>
+            </span>              
+        {% endif %}
+    
+        </p>
+        {% endfor %}
+        <p>Money: <span id="money">{{ player.money_in_galleons }}</span></p>
+    </div>
+</div>
+
+<div class="player-card" style="float:left;">
+    <div class="container">
+    <h3>Your equipment:</h3>
+    <h4>Your wand:</h4>
+<h5 id="players-wand">
+    {{ player.wand }} 
+    {% if player.wand != None %}
+    <button data-item='wand' class="equip-button" onclick="unequip(this)">Unequip</button>
+    {% endif %}
+</h5>
+
+<h4>Your robe:</h4>
+<h5 id='players-robe'>
+    {{ player.robe }} 
+    {% if player.robe != None %}
+    <button data-item='robe' class="equip-button" onclick="unequip(this)">Unequip</button>
+    {% endif %}
+</h5>
+
+<h4>Your book:</h4>
+<h5 id='players-book'>
+    {{ player.book }} 
+    {% if player.book != None %}
+    <button data-item='book' class="equip-button" onclick="unequip(this)">Unequip</button>
+    {% endif %}
+</h5>
+</div>
+</div>
+<div class="player-card" style="float:left;">
+    <div class="container">
+<h3>Items:</h3>
+<div id="equipment">
+    {% for name, items in equipment.items %}
+    <div class="equipment-category" id="{{name}}">
+    <h4>{{ name }}s</h4>
+    {% for item in items %}
+    {% if item != player.wand and item != player.robe and item != player.book %}
+    <p class="item" id="{{item.id}}">{{ item }}<button class="equip-button" onclick="equip(this)" data-item="{{item.id}}" data-category="{{name}}">Equip</button></p>
+    {% endif %}
+    {% empty %}
+    <p>Empty</p>
+    {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+
+<h3>Known charms:</h3>
+<div id ="charms" style="margin-bottom:10px; padding: 0;">
+    {% for charm in charms %}
+    <div class="charm">
+        <div class="tooltip">
+            {{ charm.name }}
+            <span class="tooltiptext">{{ charm.description }}</span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+</div>
+
+
+<div id="restart" style="clear: both;">
+    <button id="restart-button" style="margin-top: 10px">Restart character</button>
+</div>
+{% endif %}
+{% endblock %}

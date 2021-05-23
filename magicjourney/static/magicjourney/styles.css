@@ -1,0 +1,204 @@
+body {
+    background-color: rgb(61, 51, 36);
+    background-image: url('hogwart.PNG');
+    background-position: center; /* Center the image */
+    background-attachment: fixed;
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    color: white;
+    min-height: 100%;
+    height: auto;
+    width: 100%;
+    margin: 0;
+    font-family: "Josefin Slab";
+    box-shadow:inset 0 0 0 1000px rgba(134, 123, 130, 0.678);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+nav ul li {
+    float: left;
+  }
+  
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+nav ul li a:hover {
+    background-color: #111;
+  }
+
+
+.player-card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  max-width: 300px;
+  margin-left: 10px;
+  background-color: rgba(48, 45, 49, 0.562);
+  float: right;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+html{
+  height: 100%;
+  margin: 0;
+}
+.content {
+  height: 100%;
+
+}
+.content-inside {
+  padding: 20px;
+  height: auto;
+
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  background-color: #333;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+#magicjourney {
+  font-family: "Allura", serif;
+  text-align: center;
+  font-size: 100px;
+  padding: 0px;
+  margin: 0;
+}
+
+#narrator {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+#choices {
+  font-size: 30px;
+}
+
+
+
+#choices select{
+  font-size: 30px;
+}
+
+
+.equipment{
+  background-color: rgba(48, 45, 49, 0.562);
+  overflow: hidden;
+}
+
+button {
+  display: inline-block;
+  text-decoration: none;
+  background-color: rgb(65, 65, 65);
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 15px 32px;
+  font-family: "Josefin Slab";
+  font-size: 20px;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+  border: 1px solid;
+  position:relative;
+  margin:10px auto;
+  display:inline-block;
+}
+
+button:hover {
+  background-color:black; /* Green */
+  color: white;
+}
+
+#start {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  clear: both;
+}
+
+#choices {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+  position:relative;
+  clear: right;
+}
+
+.equip-button{
+  font-size: 15px;
+  width: 80px;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+#skills_points_button{
+  width: 150px;
+}
+
+.plus{
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+}
+
+.minus {
+  width: 20px;
+  height: 20px;
+  padding: 0px;
+}
+
+#creature {
+  font-size: 30px;
+}

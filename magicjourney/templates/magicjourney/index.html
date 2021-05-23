@@ -1,0 +1,50 @@
+{% extends "magicjourney/base.html" %}
+
+{% block title %}
+Magic Journey
+{% endblock %}
+
+{% block body %}
+<h2 id="location"></h2>
+
+{% if user.is_authenticated %}
+<div class="player-card" style="display: none;">
+    <div class="container">
+        <h4><b>{{ user.username }}</b></h4>
+        {% for field in fields %}
+        <p>{{ field.0|title }}: <span id="{{field.0}}-value">{{ field.1 }}</span></p>
+        {% endfor %}
+        <p>Money: <span id="money">{{ player.money_in_galleons }}</span></p>
+    </div>
+</div>
+
+
+<div id="narrator" style="display: none;"></div>
+
+<div id="choices" style="display: none;"></div>
+
+<table id="table" style="display: none;">
+    <tr id="column_names">
+    </tr>
+</table>
+
+<div id="creature" style="display:none;">
+    Your opponent:
+    <div id="creature-name">Name: <span id="creature-name-value"></span></div>
+    <div id="creature-hp">HP: <span id="creature-hp-value"></span></div>
+    <div id="creature-attack">Attack: <span id="creature-attack-value"></span></div>
+    <div id="creature-defence-charms">Defence againt charms: <span id="creature-defence-charms-value"></span></div>
+    <div id="creature-defence-trans">Defence against transfiguration: <span id="creature-defence-trans-value"></span></div>
+</div>
+
+<div id="attack-buttons" style="display:none;">
+    <button id="charm-attack">Simple attack</button>
+    <button id="trans-attack">Try transfigure</button>
+    <span id="spells"> 
+
+    </span>
+</div>
+<div id="msg"><center><h2>{{ msg }}</h2></center></div>
+<button id="start">{{ button }}</button>
+{% endif %}
+{% endblock %}

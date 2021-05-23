@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allura|Josefin Slab">
+        <link href="{% static 'magicjourney/styles.css' %}" rel="stylesheet"/>
+        <script src="{% static 'magicjourney/script.js' %}" type="module" defer="defer"></script>
+        <link rel="icon" href="data:,">
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <div class="content">
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Start</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'userpage' user.username %}">{{ user.username }}</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'register' %}">Register</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+                <li><a href="{% url 'faq' %}">FAQ</a></li>
+            </ul>
+        </nav>
+        
+            <div class="content-inside">
+                <h1 id="magicjourney">Magic Journey</h1>
+                {% block body %}
+                {% endblock %}
+            </div>
+        
+        <footer class="footer">
+            &copy; dylodylo 2020
+        </footer>
+        </div>
+    </body>
+</html>
