@@ -10,13 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 # Configure Django App for Heroku.
-import django_heroku
-
 
 from pathlib import Path
 import environ
 import os
-from dotenv import load_dotenv
 
 #Environ
 root = environ.Path(__file__) - 3
@@ -55,7 +52,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

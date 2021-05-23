@@ -71,6 +71,7 @@ pip install -r requirements.txt
 
 Then create file .env in `finalproject` directory and write secret key in it.
 ```
+cd finalproject
 nano .env
 SECRET_KEY='YourSecretKey'
 ```
