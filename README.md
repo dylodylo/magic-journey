@@ -64,17 +64,21 @@ Open your terminal and write:
 ```
 git clone https://github.com/dylodylo/magic-journey.git
 cd magic-journey
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Then create file .env in `finalproject` directory. In folder write:
+Then create file .env in `finalproject` directory and write secret key in it.
 ```
+nano .env
 SECRET_KEY='YourSecretKey'
 ```
 
-After that go back to terminal.
+After that go back root folder.
 
 ```
+cd ..
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
