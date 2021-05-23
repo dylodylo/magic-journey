@@ -59,10 +59,22 @@ Folder with FAQ file.
 
 # 4. Setup
 
+Open your terminal and write:
+
 ```
-git clone https://github.com/dylodylo/cs50web.git
-cd finalproject/finalproject
+git clone https://github.com/dylodylo/magic-journey.git
+cd magic-journey
 pip install -r requirements.txt
+```
+
+Then create file .env in `finalproject` directory. In folder write:
+```
+SECRET_KEY='YourSecretKey'
+```
+
+After that go back to terminal.
+
+```
 python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
@@ -74,7 +86,7 @@ python manage.py runserver
 
 - Deploy - I've tried deploy website to Heroku, but can't deal with static files.
 
-# 6. Some things I'm proud about
+# 6. Some things I'm proud of
 
 - My fight with JavaScript has ended with success. Files are quite in order and could be reused if I ever would like to expand game or create fight or skills system for another game.
 
